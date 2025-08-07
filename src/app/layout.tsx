@@ -1,7 +1,12 @@
 import { StyledComponentsRegistry } from '@/components/styled-components-registry'
+import { ThemeProvider } from '@/providers/theme-provider'
 import { GlobalStyles } from '@/styles/global-style'
 import type { Metadata } from 'next'
+import { Bangers, Inter } from 'next/font/google'
 import './globals.css'
+
+const inter = Inter({})
+const bangers = Bangers({ weight: '400' })
 
 export const metadata: Metadata = {
   title: 'Marvel comics store',
@@ -14,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className + bangers.className}>
       <body>
-        <GlobalStyles />
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ThemeProvider>
+          <GlobalStyles />
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </ThemeProvider>
       </body>
     </html>
   )
