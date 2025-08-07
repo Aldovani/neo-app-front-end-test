@@ -8,4 +8,8 @@ export const theme = {
     },
     with: '#fff',
   },
-}
+  fontFamily: {
+    inter: 'Inter ',
+    bangers: 'Bangers ',
+  },
+} as const
