@@ -1,9 +1,9 @@
+import Header from '@/components/header'
 import { StyledComponentsRegistry } from '@/components/styled-components-registry'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { GlobalStyles } from '@/styles/global-style'
 import type { Metadata } from 'next'
 import { Bangers, Inter } from 'next/font/google'
-import './globals.css'
 
 const inter = Inter({})
 const bangers = Bangers({ weight: '400' })
@@ -23,7 +23,11 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <GlobalStyles />
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <Header />
+
+            {children}
+          </StyledComponentsRegistry>
         </ThemeProvider>
       </body>
     </html>

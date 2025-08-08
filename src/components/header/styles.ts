@@ -1,11 +1,19 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  max-width: 1217px;
+export const Container = styled.header`
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+`
+
+export const Wrapper = styled.div`
+  max-width: calc(1217px + 24px);
   margin: 0 auto;
-  padding: 0 24px;
+  height: 3.25rem;
   display: flex;
-  padding: 1.5rem 0.75rem;
+  padding: 0 24px;
+  align-items: center;
 `
 
 export const Logo = styled.h1`
@@ -37,7 +45,7 @@ export const button = styled.button`
 
   cursor: pointer;
 
-  @media (min-width: 768px) {
+  @media (min-width: 550px) {
     width: 12.5rem;
   }
 `
@@ -47,7 +55,7 @@ export const HomeLink = styled(button)`
   position: relative;
   right: -22px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 550px) {
     right: -56px;
   }
 `
