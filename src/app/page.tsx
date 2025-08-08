@@ -19,19 +19,7 @@ export default function Home() {
         </S.Wrapper>
 
         <S.HerosPicture />
-        {/* <source media="(max-width:550px)" srcSet="./hero-image-mobile.png" />
-          <source media="(max-width:850px)" srcSet="./hero-image-tablet.png" />
-          <S.BgHero src="hero-image-desktop.png" alt="Flowers" /> */}
         <S.Divider />
-        {/* <source
-            media="(max-width:550px)"
-            srcSet="./divider-image-mobile.png"
-          />
-          <source
-            media="(max-width:850px)"
-            srcSet="./divider-image-tablet.png"
-          />
-          <S.BgDivider src="divider-image-desktop.png" alt="Flowers" /> */}
       </S.Container>
     </>
   )
