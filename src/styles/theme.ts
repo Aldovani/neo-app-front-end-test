@@ -6,7 +6,7 @@ export const theme = {
       700: '#343346',
       500: '#605E82',
     },
-    with: '#fff',
+    withe: '#fff',
   },
   fontFamily: {
     inter: 'Inter ',

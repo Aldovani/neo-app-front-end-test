@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   }
   @media (min-width: 550px) {
     .content {
-      padding-top: 30%;
+      padding-top: 20%;
       max-width: 369px;
     }
   }
