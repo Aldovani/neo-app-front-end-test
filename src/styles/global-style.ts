@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {

@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import { GlobalStyles } from '@/styles/global-style'
 import type { Metadata } from 'next'
 import { Bangers, Inter } from 'next/font/google'
+import { NuqsAdapter } from 'nuqs/adapters/next'
 
 const inter = Inter({})
 const bangers = Bangers({ weight: '400' })
@@ -21,14 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className + bangers.className}>
       <body>
-        <ThemeProvider>
-          <GlobalStyles />
-          <StyledComponentsRegistry>
-            <Header />
-
-            {children}
-          </StyledComponentsRegistry>
-        </ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider>
+            <GlobalStyles />
+            <StyledComponentsRegistry>
+              <Header />
+              {children}
+            </StyledComponentsRegistry>
+          </ThemeProvider>
+        </NuqsAdapter>
       </body>
     </html>
   )

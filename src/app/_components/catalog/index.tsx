@@ -1,27 +1,24 @@
-'use client'
+import { ComicsService } from '@/services/comics'
+import { CatalogClient } from './client'
+import { Pagination } from './components/pagination'
 
-import { ComicCard } from './card'
-import * as S from './styles'
+type CatalogProps = {
+  page?: number
+}
 
-export default function Catalog() {
+export default async function Catalog({ page = 1 }: CatalogProps) {
+  const response = await ComicsService.getAll({
+    page,
+    limit: 20,
+  })
+
   return (
-    <S.Background>
-      <S.Container>
-        <h1>sdas</h1>
-
-        <S.ContainerCards>
-          <ComicCard />
-          <ComicCard />
-          <ComicCard />
-          <ComicCard />
-          <ComicCard />
-          <ComicCard />
-          <ComicCard />
-          <ComicCard />
-
-          <ComicCard />
-        </S.ContainerCards>
-      </S.Container>
-    </S.Background>
+    <CatalogClient
+      comics={response.results}
+      offset={response.offset}
+      totalElement={response.total}
+    >
+      <Pagination currentPage={page} totalOfElements={response.total} />
+    </CatalogClient>
   )
 }

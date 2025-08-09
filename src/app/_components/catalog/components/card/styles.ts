@@ -1,8 +1,11 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   background-color: ${(prop) => prop.theme.colors.withe};
   padding: 16px 0 20px 0;
+  display: block;
+  text-decoration: none;
   position: relative;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 1px 0px #605e821a 0px 1px 1px 0px #605e8217 0px 2px 1px
