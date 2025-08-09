@@ -1,6 +1,7 @@
 'use client'
 
 import { HomeIcon, ShoppingCart } from 'lucide-react'
+import { Cart } from '../cart'
 import * as S from './styles'
 export default function Header() {
   return (
@@ -17,6 +18,7 @@ export default function Header() {
           </S.CatButton>
         </S.ContainerButtons>
       </S.Wrapper>
+      <Cart />
     </S.Container>
   )
 }

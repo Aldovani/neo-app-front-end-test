@@ -31,6 +31,7 @@ export const ContainerButtons = styled.h1`
   right: 0;
   top: 0;
   display: flex;
+  z-index: 30;
   align-items: center;
 `
 

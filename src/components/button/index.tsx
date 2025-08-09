@@ -6,5 +6,5 @@ type ButtonProps = ComponentProps<'button'> & {
 }
 
 export function Button({ margin, ...props }: ButtonProps) {
-  return <S.Container margin={margin} {...props} />
+  return <S.Container $margin={margin} {...props} />
 }
