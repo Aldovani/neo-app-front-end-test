@@ -1,9 +1,5 @@
 import { QuantityInput } from '@/components/quantity-input'
-import {
-  handleAddProduct,
-  handleDeleteProduct,
-  handleRemoveProduct,
-} from '@/stores/modules/cart/actions'
+import { useCart } from '@/stores/modules/cart/actions'
 import { CartProductItem } from '@/stores/modules/cart/types'
 import { formateMoney } from '@/utils/formate-money'
 import Image from 'next/image'
@@ -20,6 +16,8 @@ export function CartListItem({
   title,
   quantity,
 }: CartListItemProps) {
+  const { handleAddProduct, handleDeleteProduct, handleRemoveProduct } =
+    useCart()
   return (
     <S.Container>
       <S.WrapperContent>
@@ -31,10 +29,11 @@ export function CartListItem({
           </S.RemoveButton>
         </div>
       </S.WrapperContent>
+
       <QuantityInput
         quantity={quantity}
         decrementAction={() =>
-          handleAddProduct({
+          handleRemoveProduct({
             id,
             imgUrl,
             price,
@@ -42,7 +41,7 @@ export function CartListItem({
           })
         }
         incrementAction={() =>
-          handleRemoveProduct({
+          handleAddProduct({
             id,
             imgUrl,
             price,

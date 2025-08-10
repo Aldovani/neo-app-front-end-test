@@ -13,8 +13,14 @@ export const Container = styled.div`
   max-width: calc(1217px + 24px);
   margin: 0 auto 0;
   padding-block: 64px;
+  padding-inline: 24px;
   display: grid;
-  grid-template-columns: 0.7fr 0.3fr;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 0.7fr 0.3fr;
+  }
 `
 export const Header = styled.header`
   display: flex;

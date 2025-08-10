@@ -3,6 +3,7 @@
 import { useAppDispatch, useAppSelector } from '@/stores'
 import { toggleCart } from '@/stores/modules/cart'
 import { HomeIcon, ShoppingCart, X } from 'lucide-react'
+import Link from 'next/link'
 import { Cart } from '../cart'
 import * as S from './styles'
 
@@ -15,7 +16,7 @@ export default function Header() {
       <S.Wrapper>
         <S.Logo>Marvel Comics Store</S.Logo>
         <S.ContainerButtons>
-          <S.HomeLink as="a">
+          <S.HomeLink as={Link} href="/">
             <HomeIcon />
           </S.HomeLink>
           <S.CatButton onClick={() => dispatch(toggleCart())}>

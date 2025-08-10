@@ -12,7 +12,7 @@ type PaginationProps = {
 }
 
 export function Pagination({
-  lastPages = 1,
+  lastPages = 0,
   totalOfElements = 0,
   currentPage,
 }: PaginationProps) {

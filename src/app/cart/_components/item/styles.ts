@@ -5,15 +5,25 @@ export const Container = styled.li`
   padding: 0.75rem 1.5rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 0px 1px 0px #605e821a 0px 1px 1px 0px #605e8217 0px 2px 1px
+    0px #605e820d 0px 4px 2px 0px #605e8203 0px 6px 2px 0px #605e8200;
+
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `
 
 export const Title = styled.h4`
   font-family: ${(prop) => prop.theme.fontFamily.inter};
   color: ${(prop) => prop.theme.colors.gray[500]};
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 150%;
   font-weight: 500;
-  max-width: 330px;
+
   display: block;
 `
 export const RemoveButton = styled.button`
@@ -35,7 +45,7 @@ export const Price = styled.h3`
 
 export const WrapperPrice = styled.div`
   align-content: center;
-  text-align: end;
+  text-align: center;
   font-family: ${(prop) => prop.theme.fontFamily.inter};
   font-weight: 500;
   font-size: 1rem;
@@ -50,11 +60,33 @@ export const WrapperPrice = styled.div`
 `
 export const WrapperContent = styled.div`
   display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
 
   > div {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-left: 32px;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: fit-content;
+    }
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    > div {
+      text-align: start;
+      align-items: start;
+      margin-left: 32px;
+    }
   }
 `

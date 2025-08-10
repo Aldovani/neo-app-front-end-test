@@ -1,7 +1,9 @@
 'use client'
 
-import { useAppSelector } from '@/stores'
+import { useAppDispatch, useAppSelector } from '@/stores'
+import { toggleCart } from '@/stores/modules/cart'
 import { formateMoney } from '@/utils/formate-money'
+import { useRouter } from 'next/navigation'
 import { Button } from '../button'
 import { CartItem } from './components/item'
 import * as S from './styles'
@@ -9,6 +11,13 @@ import * as S from './styles'
 export function Cart() {
   const products = useAppSelector((item) => item.cart.items)
   const isOpen = useAppSelector((item) => item.cart.isOpen)
+  const router = useRouter()
+  const dispatch = useAppDispatch()
+
+  function handleGoToDetails() {
+    router.push('/cart')
+    dispatch(toggleCart())
+  }
 
   if (!isOpen) {
     return null
@@ -40,7 +49,7 @@ export function Cart() {
             <h4>Total</h4>
             <h3>{formateMoney(55)}</h3>
           </div>
-          <Button>Ir para o carrinho</Button>
+          <Button onClick={handleGoToDetails}>Ver mais detalhes</Button>
         </S.Footer>
       </S.Body>
     </S.Container>

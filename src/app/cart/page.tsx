@@ -2,6 +2,7 @@
 
 import { useAppSelector } from '@/stores'
 import { CartList } from './_components/list'
+import { ResumeOrder } from './_components/resume'
 import * as S from './styles'
 
 export default function CartPage() {
@@ -17,7 +18,7 @@ export default function CartPage() {
           </S.Header>
           <CartList />
         </div>
-        <div></div>
+        <ResumeOrder />
       </S.Container>
     </S.Background>
   )

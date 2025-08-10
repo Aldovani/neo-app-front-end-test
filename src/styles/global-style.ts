@@ -23,4 +23,8 @@ body {
   margin: 0;
 }
 
+ul,ol,li{
+  list-style: none;
+}
+
 `

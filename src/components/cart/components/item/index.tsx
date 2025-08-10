@@ -1,10 +1,7 @@
 'use client'
 
 import { QuantityInput } from '@/components/quantity-input'
-import {
-  handleAddProduct,
-  handleRemoveProduct,
-} from '@/stores/modules/cart/actions'
+import { useCart } from '@/stores/modules/cart/actions'
 import { formateMoney } from '@/utils/formate-money'
 import Image from 'next/image'
 import * as S from './styles'
@@ -18,6 +15,7 @@ type CartItemProp = {
 }
 
 export function CartItem({ imgUrl, price, title, quantity, id }: CartItemProp) {
+  const { handleAddProduct, handleRemoveProduct } = useCart()
   return (
     <S.Container>
       <Image src={imgUrl} alt={title} width={80} height={88} />
