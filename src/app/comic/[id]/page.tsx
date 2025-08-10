@@ -7,7 +7,7 @@ type ComicDetailsProp = {
 }
 
 export default async function ComicDetails({ params }: ComicDetailsProp) {
-  const { id } = await params
+  const { id } = params
 
   const response = await ComicsService.getById({
     id: Number(id),
@@ -15,9 +15,8 @@ export default async function ComicDetails({ params }: ComicDetailsProp) {
 
   if (!response.success || !response.value) return
 
-  console.log(response.value.data)
   const comic = {
-    description: '',
+    description: response.value.data.results[0].textObjects[0].text || '',
     price: response.value.data.results[0].prices[0].price,
     id: response.value.data.results[0].id,
     title: response.value.data.results[0].title,

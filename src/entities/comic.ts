@@ -13,17 +13,12 @@ export type Comic = {
   issn: string
   format: string
   pageCount: number
-  textObjects: [[object]]
+  textObjects: {
+    type: string
+    language: string
+    text: string
+  }[]
   resourceURI: string
-  urls: [[object]]
-  series: {
-    resourceURI: string
-    name: string
-  }
-  variants: []
-  collections: []
-  collectedIssues: []
-  dates: [[object], [object]]
   prices: { type: string; price: number }[]
   thumbnail: {
     path: string

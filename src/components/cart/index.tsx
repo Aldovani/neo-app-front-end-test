@@ -21,8 +21,12 @@ export function Cart() {
   const router = useRouter()
   const dispatch = useAppDispatch()
 
-  function handleGoToDetails() {
+  function handleGoToCartDetails() {
     router.push('/cart')
+    dispatch(toggleCart())
+  }
+  function handleGoToShop() {
+    router.push('/')
     dispatch(toggleCart())
   }
 
@@ -33,27 +37,34 @@ export function Cart() {
         <S.Header>
           <h3>Carrinho</h3>
         </S.Header>
+        {products.length === 0 && (
+          <Button onClick={handleGoToShop}>Ir as compras</Button>
+        )}
 
-        <S.Main>
-          {products.map((item) => (
-            <CartItem
-              imgUrl={item.product.imgUrl}
-              price={item.product.price}
-              title={item.product.title}
-              quantity={item.quantity}
-              key={item.product.id}
-              id={item.product.id}
-            />
-          ))}
-        </S.Main>
+        {products.length > 0 && (
+          <>
+            <S.Main>
+              {products.map((item) => (
+                <CartItem
+                  imgUrl={item.product.imgUrl}
+                  price={item.product.price}
+                  title={item.product.title}
+                  quantity={item.quantity}
+                  key={item.product.id}
+                  id={item.product.id}
+                />
+              ))}
+            </S.Main>
 
-        <S.Footer>
-          <div className="price-container">
-            <h4>Total</h4>
-            <h3>{formateMoney(total)}</h3>
-          </div>
-          <Button onClick={handleGoToDetails}>Ver mais detalhes</Button>
-        </S.Footer>
+            <S.Footer>
+              <div className="price-container">
+                <h4>Total</h4>
+                <h3>{formateMoney(total)}</h3>
+              </div>
+              <Button onClick={handleGoToCartDetails}>Ver mais detalhes</Button>
+            </S.Footer>
+          </>
+        )}
       </S.Body>
     </S.Container>
   )

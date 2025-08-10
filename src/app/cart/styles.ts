@@ -32,3 +32,23 @@ export const Title = styled.h2`
   color: ${(prop) => prop.theme.colors.gray[700]};
   font-size: 2rem;
 `
+
+export const EmptyState = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  background-color: ${(prop) => prop.theme.colors.withe};
+  justify-content: center;
+  align-items: center;
+  padding: 64px;
+  gap: 24px;
+`
+
+export const EmptyStateTitle = styled.h3`
+  font-family: ${(prop) => prop.theme.fontFamily.bangers};
+  color: ${(prop) => prop.theme.colors.gray[700]};
+  font-size: 2rem;
+`
