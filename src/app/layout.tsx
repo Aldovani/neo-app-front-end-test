@@ -7,8 +7,10 @@ import type { Metadata } from 'next'
 import { Bangers, Inter } from 'next/font/google'
 import { NuqsAdapter } from 'nuqs/adapters/next'
 
-const inter = Inter({})
-const bangers = Bangers({ weight: '400' })
+const inter = Inter({
+  subsets: ['latin'],
+})
+const bangers = Bangers({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Marvel comics store',

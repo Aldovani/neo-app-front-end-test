@@ -3,11 +3,11 @@ import { ComicsService } from '@/services/comics'
 import { ComicDetailsClient } from './_components/client'
 
 type ComicDetailsProp = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function ComicDetails({ params }: ComicDetailsProp) {
-  const { id } = params
+  const { id } = await params
 
   const response = await ComicsService.getById({
     id: Number(id),
