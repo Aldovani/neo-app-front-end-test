@@ -7,8 +7,11 @@ export const Container = styled.li`
   padding-bottom: 24px;
 `
 export const Wrapper = styled.div`
-  div {
+  flex: 1;
+
+  .container-price {
     display: flex;
+    justify-content: space-between;
     margin-top: 16px;
     gap: 4px;
     align-items: center;

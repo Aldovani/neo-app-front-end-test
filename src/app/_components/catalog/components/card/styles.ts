@@ -1,11 +1,9 @@
-import Link from 'next/link'
+import NextLink from 'next/link'
 import styled from 'styled-components'
 
-export const Container = styled(Link)`
+export const Container = styled.article`
   background-color: ${(prop) => prop.theme.colors.withe};
   padding: 16px 0 20px 0;
-  display: block;
-  text-decoration: none;
   position: relative;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 1px 0px #605e821a 0px 1px 1px 0px #605e8217 0px 2px 1px
@@ -15,6 +13,10 @@ export const Container = styled(Link)`
     pointer-events: all;
     opacity: 1;
   }
+`
+export const Link = styled(NextLink)`
+  display: block;
+  text-decoration: none;
 `
 export const ContainerImage = styled.div`
   padding: 16px 24px 8px;

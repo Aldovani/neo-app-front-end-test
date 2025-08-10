@@ -1,15 +1,58 @@
+'use client'
+
+import { QuantityInput } from '@/components/quantity-input'
+import { useAppDispatch } from '@/stores'
+import { addProduct, removeProduct } from '@/stores/modules/cart'
+import { formateMoney } from '@/utils/formate-money'
 import Image from 'next/image'
 import * as S from './styles'
 
-export function Item() {
+type CartItemProp = {
+  imgUrl: string
+  title: string
+  price: number
+  quantity: number
+  id: number
+}
+
+export function CartItem({ imgUrl, price, title, quantity, id }: CartItemProp) {
+  const dispatch = useAppDispatch()
+
+  function handleAddProduct() {
+    dispatch(
+      addProduct({
+        id,
+        imgUrl,
+        price,
+        title,
+      }),
+    )
+  }
+  function handleRemoveProduct() {
+    dispatch(
+      removeProduct({
+        id,
+        imgUrl,
+        price,
+        title,
+      }),
+    )
+  }
+
   return (
     <S.Container>
-      <Image src="/comic.png" alt="sada" width={80} height={88} />
+      <Image src={imgUrl} alt={title} width={80} height={88} />
 
       <S.Wrapper>
-        <S.Title>Batman: O Cavaleiro das Trevas – Edição Definitiva</S.Title>
-        <div>
-          <S.Price>R$ 129,90</S.Price>
+        <S.Title>{title}</S.Title>
+        <div className="container-price">
+          <S.Price>{formateMoney(price)}</S.Price>
+
+          <QuantityInput
+            quantity={quantity}
+            decrementAction={() => handleRemoveProduct()}
+            incrementAction={() => handleAddProduct()}
+          />
         </div>
       </S.Wrapper>
     </S.Container>

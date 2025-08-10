@@ -1,21 +1,38 @@
 'use client'
 
+import { useAppSelector } from '@/stores'
 import { formateMoney } from '@/utils/formate-money'
 import { Button } from '../button'
-import { Item } from './components/item'
+import { CartItem } from './components/item'
 import * as S from './styles'
 
 export function Cart() {
+  const products = useAppSelector((item) => item.cart.items)
+  const isOpen = useAppSelector((item) => item.cart.isOpen)
+
+  if (!isOpen) {
+    return null
+  }
+
   return (
     <S.Container>
-      <S.Overlay></S.Overlay>
+      <S.Overlay />
       <S.Body>
         <S.Header>
           <h3>Carrinho</h3>
         </S.Header>
 
         <S.Main>
-          <Item />
+          {products.map((item) => (
+            <CartItem
+              imgUrl={item.product.imgUrl}
+              price={item.product.price}
+              title={item.product.title}
+              quantity={item.quantity}
+              key={item.product.id}
+              id={item.product.id}
+            />
+          ))}
         </S.Main>
 
         <S.Footer>

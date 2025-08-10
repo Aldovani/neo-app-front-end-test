@@ -64,7 +64,19 @@ export const CatButton = styled(button)`
   background-color: ${(prop) => prop.theme.colors.primary};
   padding-left: 8px;
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+
   &:hover {
     background-color: red;
+  }
+
+  > div  {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    span {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
   }
 `

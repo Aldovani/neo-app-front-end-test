@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: fixed;
   inset: 0;
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -33,10 +33,11 @@ export const Overlay = styled.div`
 `
 export const Body = styled.div`
   background-color: ${(prop) => prop.theme.colors.withe};
-
+  position: relative;
   display: grid;
+  max-height: 100vh;
 
-  grid-template-rows: 52px 0.85fr 0.15fr;
+  grid-template-rows: 52px 1fr;
 `
 export const Header = styled.header`
   display: flex;
@@ -45,19 +46,28 @@ export const Header = styled.header`
 `
 export const Main = styled.ul`
   padding-top: 24px;
+  padding-inline: 24px;
+  gap: 12px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-inline: 24px;
+
+  max-height: calc(100vh - 100px - 52px);
+  overflow: scroll;
 `
 export const Footer = styled.footer`
-  padding: 16px 24px 0;
+  padding: 16px 24px;
   border-top: 1px solid ${(prop) => prop.theme.colors.gray[500] + '33'};
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background-color: ${(prop) => prop.theme.colors.withe};
 
   button {
     width: 100%;
     margin-top: 24px;
   }
+
   .price-container {
     display: flex;
     justify-content: space-between;
