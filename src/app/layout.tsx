@@ -1,5 +1,6 @@
 import Header from '@/components/header'
 import { StyledComponentsRegistry } from '@/components/styled-components-registry'
+import { ReduxProvider } from '@/providers/redux-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { GlobalStyles } from '@/styles/global-style'
 import type { Metadata } from 'next'
@@ -24,11 +25,13 @@ export default function RootLayout({
       <body>
         <NuqsAdapter>
           <ThemeProvider>
-            <GlobalStyles />
-            <StyledComponentsRegistry>
-              <Header />
-              {children}
-            </StyledComponentsRegistry>
+            <ReduxProvider>
+              <GlobalStyles />
+              <StyledComponentsRegistry>
+                <Header />
+                {children}
+              </StyledComponentsRegistry>
+            </ReduxProvider>
           </ThemeProvider>
         </NuqsAdapter>
       </body>
