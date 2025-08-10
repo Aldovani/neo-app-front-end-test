@@ -14,9 +14,9 @@ export type Comic = {
   format: string
   pageCount: number
   textObjects: {
-    type: string
-    language: string
-    text: string
+    type?: string
+    language?: string
+    text?: string
   }[]
   resourceURI: string
   prices: { type: string; price: number }[]

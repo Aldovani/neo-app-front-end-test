@@ -16,7 +16,7 @@ export default async function ComicDetails({ params }: ComicDetailsProp) {
   if (!response.success || !response.value) return
 
   const comic = {
-    description: response.value.data.results[0].textObjects[0].text || '',
+    description: response.value.data.results[0].textObjects[0]?.text || '',
     price: response.value.data.results[0].prices[0].price,
     id: response.value.data.results[0].id,
     title: response.value.data.results[0].title,
