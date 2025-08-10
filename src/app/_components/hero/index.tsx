@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/button'
+import Link from 'next/link'
 import * as S from './styles'
 
 export function Hero() {
@@ -13,7 +13,9 @@ export function Hero() {
             Encontre HQs raras, colecionáveis exclusivos e os produtos mais
             incríveis do universo Marvel.
           </S.Description>
-          <Button margin="1.75rem 0 0 0">Comece sua coleção</Button>
+          <S.Link as={Link} href="#comics">
+            Comece sua coleção
+          </S.Link>
         </div>
       </S.Wrapper>
 

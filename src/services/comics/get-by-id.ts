@@ -2,12 +2,11 @@ import { Comic } from '@/entities/comic'
 import { AxiosError } from 'axios'
 import { httpClint } from '../http-client'
 
-type GetAllRequest = {
-  page: number
-  limit: number
+type GetByIdRequest = {
+  id: number
 }
 
-type GetAllResponse = {
+type GetByIdResponseSuccess = {
   data: {
     offset: number
     limit: number
@@ -17,18 +16,13 @@ type GetAllResponse = {
   }
 }
 
-export async function getAll({ page, limit }: GetAllRequest) {
+export async function getById({ id }: GetByIdRequest) {
   try {
-    const response = await httpClint.get<GetAllResponse>(`/comics`, {
-      params: {
-        offset: page * limit,
-      },
-    })
+    const response = await httpClint.get<GetByIdResponseSuccess>(
+      `/comics/${id}`,
+    )
 
-    return {
-      success: true,
-      value: response.data.data,
-    }
+    return { success: true, value: response.data }
   } catch (err: unknown) {
     if (err instanceof AxiosError)
       return { success: false, error: { code: err.status!, status: err.code! } }

@@ -19,9 +19,15 @@ export const Container = styled.div`
   }
 `
 
+export const TotalOfComics = styled.h3`
+  color: ${(prop) => prop.theme.colors.gray[500]};
+  text-align: right;
+`
+
 export const ContainerCards = styled.div`
   --grid-items: 1;
   display: grid;
+  margin-top: 16px;
   grid-template-columns: repeat(var(--grid-items), 1fr);
   gap: 32px 28px;
 

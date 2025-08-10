@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Background = styled.main`
   width: 100%;
   min-height: 100vh;
-  padding-bottom: 64px;
+  padding-block: 64px;
   background-image: url('./catalog-section-bg.png');
   background-repeat: no-repeat;
   background-size: cover;

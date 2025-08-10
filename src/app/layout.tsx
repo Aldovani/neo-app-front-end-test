@@ -21,7 +21,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.className + bangers.className}>
+    <html
+      lang="en"
+      className={inter.className + bangers.className}
+      suppressHydrationWarning
+    >
       <body>
         <NuqsAdapter>
           <ThemeProvider>

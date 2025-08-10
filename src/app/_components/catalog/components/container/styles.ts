@@ -13,7 +13,7 @@ export const Container = styled.div`
   max-width: calc(1217px - 24px);
   padding-inline: 24px;
   margin: 0 auto;
-  padding-top: 94px;
+  padding-top: calc(94px + 64px);
 
   @media (min-width: 1200px) {
     padding-inline: 0;

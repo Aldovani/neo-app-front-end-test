@@ -1,3 +1,4 @@
+'use client'
 import { useAppDispatch } from '@/stores'
 import { addProduct } from '@/stores/modules/cart'
 import { formateMoney } from '@/utils/formate-money'

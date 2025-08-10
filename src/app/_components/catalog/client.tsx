@@ -20,11 +20,11 @@ export function CatalogClient({
 }: CatalogProps) {
   return (
     <>
-      <h3>
+      <S.TotalOfComics>
         {offset} de {totalElement}
-      </h3>
+      </S.TotalOfComics>
 
-      <S.ContainerCards>
+      <S.ContainerCards id="comics">
         {comics.map((comic) => (
           <ComicCard
             id={comic.id}

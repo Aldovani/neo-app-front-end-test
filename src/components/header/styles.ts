@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 20;
@@ -69,7 +69,7 @@ export const CatButton = styled(button)`
     background-color: red;
   }
 
-  > div  {
+  > div {
     display: flex;
     align-items: center;
     justify-content: flex-end;

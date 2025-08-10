@@ -12,13 +12,17 @@ export default async function Catalog({ page = 1 }: CatalogProps) {
     limit: 20,
   })
 
+  if (!response.success || !response.value) {
+    return <div></div>
+  }
+
   return (
     <CatalogClient
-      comics={response.results}
-      offset={response.offset}
-      totalElement={response.total}
+      comics={response.value.results}
+      offset={response.value.offset}
+      totalElement={response.value.total}
     >
-      <Pagination currentPage={page} totalOfElements={response.total} />
+      <Pagination currentPage={page} totalOfElements={response.value.total} />
     </CatalogClient>
   )
 }

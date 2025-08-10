@@ -1,8 +1,9 @@
+import { Container as ButtonContainer } from '@/components/button/styles'
 import styled from 'styled-components'
 
 export const Container = styled.main`
   width: 100%;
-  height: calc(100vh - 52px);
+  height: 100vh;
   overflow: hidden;
 `
 
@@ -19,6 +20,8 @@ export const Wrapper = styled.div`
   width: 100%;
   z-index: 10;
   padding-inline: 24px;
+  margin-top: 64px;
+
   .content {
     max-width: 281px;
     padding-top: 148px;
@@ -98,4 +101,10 @@ export const Divider = styled.div`
   @media (min-width: 850px) {
     background-image: url('./divider-image-desktop.png');
   }
+`
+
+export const Link = styled(ButtonContainer)`
+  display: inline-block;
+  margin-top: 24px;
+  text-decoration: none;
 `

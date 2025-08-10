@@ -8,9 +8,11 @@ export const httpClint = axios.create({
 httpClint.interceptors.request.use((config) => {
   const { hash, publicKey, ts } = generateHash()
 
-  config.params.ts = ts
-  config.params.apikey = publicKey
-  config.params.hash = hash
+  config.params = {
+    ts,
+    apikey: publicKey,
+    hash,
+  }
 
   return config
 })

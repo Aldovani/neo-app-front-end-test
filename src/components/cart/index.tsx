@@ -10,6 +10,13 @@ import * as S from './styles'
 
 export function Cart() {
   const products = useAppSelector((item) => item.cart.items)
+
+  const total = products.reduce((accumulator, currentValue) => {
+    const subTotal = currentValue.product.price * currentValue.quantity
+
+    return accumulator + subTotal
+  }, 0)
+
   const isOpen = useAppSelector((item) => item.cart.isOpen)
   const router = useRouter()
   const dispatch = useAppDispatch()
@@ -47,7 +54,7 @@ export function Cart() {
         <S.Footer>
           <div className="price-container">
             <h4>Total</h4>
-            <h3>{formateMoney(55)}</h3>
+            <h3>{formateMoney(total)}</h3>
           </div>
           <Button onClick={handleGoToDetails}>Ver mais detalhes</Button>
         </S.Footer>
