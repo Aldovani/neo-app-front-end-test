@@ -1,4 +1,4 @@
-export type CardProductItem = {
+export type CartProductItem = {
   title: string
   price: number
   id: number
@@ -6,7 +6,7 @@ export type CardProductItem = {
 }
 
 export type CartStateItem = {
-  product: CardProductItem
+  product: CartProductItem
   quantity: number
 }
 

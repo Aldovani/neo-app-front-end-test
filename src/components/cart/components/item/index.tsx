@@ -1,8 +1,10 @@
 'use client'
 
 import { QuantityInput } from '@/components/quantity-input'
-import { useAppDispatch } from '@/stores'
-import { addProduct, removeProduct } from '@/stores/modules/cart'
+import {
+  handleAddProduct,
+  handleRemoveProduct,
+} from '@/stores/modules/cart/actions'
 import { formateMoney } from '@/utils/formate-money'
 import Image from 'next/image'
 import * as S from './styles'
@@ -16,29 +18,6 @@ type CartItemProp = {
 }
 
 export function CartItem({ imgUrl, price, title, quantity, id }: CartItemProp) {
-  const dispatch = useAppDispatch()
-
-  function handleAddProduct() {
-    dispatch(
-      addProduct({
-        id,
-        imgUrl,
-        price,
-        title,
-      }),
-    )
-  }
-  function handleRemoveProduct() {
-    dispatch(
-      removeProduct({
-        id,
-        imgUrl,
-        price,
-        title,
-      }),
-    )
-  }
-
   return (
     <S.Container>
       <Image src={imgUrl} alt={title} width={80} height={88} />
@@ -50,8 +29,22 @@ export function CartItem({ imgUrl, price, title, quantity, id }: CartItemProp) {
 
           <QuantityInput
             quantity={quantity}
-            decrementAction={() => handleRemoveProduct()}
-            incrementAction={() => handleAddProduct()}
+            decrementAction={() =>
+              handleRemoveProduct({
+                id,
+                imgUrl,
+                price,
+                title,
+              })
+            }
+            incrementAction={() =>
+              handleAddProduct({
+                id,
+                imgUrl,
+                price,
+                title,
+              })
+            }
           />
         </div>
       </S.Wrapper>
