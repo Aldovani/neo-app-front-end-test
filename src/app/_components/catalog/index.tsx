@@ -1,5 +1,6 @@
 import { ComicsService } from '@/services/comics'
 import { CatalogClient } from './client'
+import { ErrorLoading } from './components/error'
 import { Pagination } from './components/pagination'
 
 type CatalogProps = {
@@ -13,7 +14,7 @@ export default async function Catalog({ page = 1 }: CatalogProps) {
   })
 
   if (!response.success || !response.value) {
-    return <div></div>
+    return <ErrorLoading />
   }
 
   return (

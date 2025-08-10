@@ -11,4 +11,10 @@ export const Container = styled.button.attrs<{ $margin?: string }>(
   font-weight: 800;
   border: 0;
   color: ${(prop) => prop.theme.colors.gray[700]};
+  transition: color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
 `

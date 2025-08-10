@@ -26,12 +26,8 @@ export function Cart() {
     dispatch(toggleCart())
   }
 
-  if (!isOpen) {
-    return null
-  }
-
   return (
-    <S.Container>
+    <S.Container $isOpen={isOpen}>
       <S.Overlay />
       <S.Body>
         <S.Header>

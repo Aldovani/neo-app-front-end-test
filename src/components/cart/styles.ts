@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.div.attrs<{ $isOpen: boolean }>((prop) => prop)`
   position: fixed;
   inset: 0;
+  transform: ${(prop) =>
+    !prop.$isOpen ? 'translateX(100%)' : 'translateX(0)'};
+  opacity: ${(prop) => (!prop.$isOpen ? '0' : '1')};
   width: 100vw;
   max-height: 100vh;
+  transition: all 0.3s ease;
 
   display: grid;
   grid-template-columns: 1fr;
