@@ -32,13 +32,16 @@ export function Cart() {
 
   return (
     <S.Container $isOpen={isOpen}>
-      <S.Overlay />
+      <S.Overlay onClick={() => dispatch(toggleCart())} />
       <S.Body>
         <S.Header>
           <h3>Carrinho</h3>
         </S.Header>
         {products.length === 0 && (
-          <Button onClick={handleGoToShop}>Ir as compras</Button>
+          <S.EmptyContainer>
+            <S.EmptyTitile>Carrinho vazio</S.EmptyTitile>
+            <Button onClick={handleGoToShop}>Ir as compras</Button>
+          </S.EmptyContainer>
         )}
 
         {products.length > 0 && (

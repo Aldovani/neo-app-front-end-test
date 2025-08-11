@@ -5,10 +5,9 @@ export const Container = styled.div.attrs<{ $isOpen: boolean }>((prop) => prop)`
   inset: 0;
   transform: ${(prop) =>
     !prop.$isOpen ? 'translateX(100%)' : 'translateX(0)'};
-  opacity: ${(prop) => (!prop.$isOpen ? '0' : '1')};
   width: 100vw;
   max-height: 100vh;
-  transition: all 0.3s ease;
+  transition: all 0.5s;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -27,8 +26,6 @@ export const Container = styled.div.attrs<{ $isOpen: boolean }>((prop) => prop)`
 `
 
 export const Overlay = styled.div`
-  background-color: #000;
-  opacity: 0.3;
   display: none;
 
   @media (min-width: 600px) {
@@ -36,6 +33,7 @@ export const Overlay = styled.div`
   }
 `
 export const Body = styled.div`
+  border-left: 1px solid ${(prop) => prop.theme.colors.gray[500] + '33'};
   background-color: ${(prop) => prop.theme.colors.withe};
   position: relative;
   display: grid;
@@ -77,16 +75,30 @@ export const Footer = styled.footer`
     justify-content: space-between;
     align-items: center;
 
+    font-family: ${(prop) => prop.theme.fontFamily.inter};
+    font-weight: 700;
+
     h4 {
       color: ${(prop) => prop.theme.colors.gray[500]};
-      font-family: ${(prop) => prop.theme.fontFamily.inter};
-      font-weight: 700;
     }
+
     h3 {
-      font-family: ${(prop) => prop.theme.fontFamily.inter};
-      font-weight: 700;
       color: ${(prop) => prop.theme.colors.gray[700]};
       font-size: 1.5rem;
     }
   }
+`
+
+export const EmptyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`
+export const EmptyTitile = styled.h3`
+  font-family: ${(prop) => prop.theme.fontFamily.inter};
+  font-weight: 700;
+  color: ${(prop) => prop.theme.colors.gray[700]};
+  font-size: 1.5rem;
 `
