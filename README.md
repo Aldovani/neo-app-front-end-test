@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">Marvel comics store</h1>
+<h4 align="center">Uma loja de quadrinhos fictícia</h4>
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+  [Tecnologias](#tecnologias)| [Instalação](#instalacao)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+</div>
+
+<img src="./.github/home.png"/>
+
+
+<div id="Sobre">
+
+
+<div id="tecnologias">
+
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+#### Front-end
+- [Next](https://nextjs.org/)
+- [cypress](https://www.cypress.io/)
+- [styled-components](https://styled-components.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Redux](https://redux.js.org/)
+
+
+</div>
+
+<br/>
+
+
+## Requisitos
+
+### Funcionalidades
+
+
+Requisitos Funcionais
+Estes são os requisitos que descrevem o que o sistema deve fazer.
+
+Requisitos Essenciais:
+RF1: O sistema deve exibir uma listagem paginada de histórias em quadrinhos (HQ's).
+
+RF2: O sistema deve permitir a visualização individual de uma HQ em uma página dedicada.
+
+RF3: O sistema deve possuir um carrinho de compras.
+
+Requisitos Opcionais:
+RF4: Na listagem de HQ's, o sistema deve marcar aleatoriamente 10% dos quadrinhos como "raros" ao carregar a página.
+
+RF5: O carrinho de compras deve permitir a inserção de um cupom de desconto.
+
+RF6: O sistema deve realizar a validação do cupom de desconto usando uma lógica "mock", sem a necessidade de uma API externa.
+
+RF7: O sistema deve aplicar cupons "comuns" apenas a HQ's que não são marcadas como "raras".
+
+RF8: O sistema deve aplicar cupons "raros" apenas a HQ's marcadas como "raras".
+
+
+
+<div id="instalacao">
+
+
+### Pré-requisitos
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+
+- [Git](https://git-scm.com),
+- [Node.js](https://nodejs.org/en/).
+- [VSCode](https://code.visualstudio.com/)
+
+### Clonar o código
+```Bash
+
+# Clone este repositório
+$ git clone https://github.com/aldovani/neo-app-front-end-test
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🎲 Antes de rodar a aplicação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+é necessário setar as varável de ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
 
-## Learn More
+MARVEL_API_URL=
+MARVEL_API_PUBLIC_KEY=
+MARVEL_API_PRIVATE_KEY=
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 💻 Rodando o Front End (web)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
 
-## Deploy on Vercel
+# Vá para a pasta web
+$ cd neo-app-front-end-test
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Instale as dependências
+$ npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+```
+
+</div>
+
+### Autor
+---
+
+<a href="https://aldovani.github.io/portfolio/">
+ <img style="border-radius: 50%;" src="https://github.com/aldovani.png" width="100px;" alt="Aldovani image profile"/>
+ <br />
+ <sub><b>Aldovani</b></sub></a> <a href="https://aldovani.github.io/portfolio/" ></a>
+
+
+Feito com ❤️ por Aldovani Henrique 👋 Entre em contato!
+
