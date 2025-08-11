@@ -1,4 +1,6 @@
 import { Comic } from '@/entities/comic'
+import { assignDiscount } from '@/utils/assign-discount'
+import { assignRarity } from '@/utils/assign-rarity'
 import { AxiosError } from 'axios'
 import { httpClint } from '../http-client'
 
@@ -22,7 +24,13 @@ export async function getById({ id }: GetByIdRequest) {
       `/comics/${id}`,
     )
 
-    return { success: true, value: response.data }
+    return {
+      success: true,
+      value: {
+        ...response.data.data,
+        results: assignDiscount(assignRarity(response.data.data.results)),
+      },
+    }
   } catch (err: unknown) {
     if (err instanceof AxiosError)
       return { success: false, error: { code: err.status!, status: err.code! } }
