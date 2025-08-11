@@ -12,6 +12,7 @@ httpClint.interceptors.request.use((config) => {
     ts,
     apikey: publicKey,
     hash,
+    ...config.params,
   }
 
   return config
