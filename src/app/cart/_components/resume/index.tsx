@@ -9,7 +9,6 @@ export function ResumeOrder() {
   const { handleVerifyCoupon } = useCart()
   const inputRef = useRef<HTMLInputElement | null>(null)
   const products = useAppSelector((item) => item.cart.items)
-  const couponDiscount = useAppSelector((item) => item.cart.couponDiscount)
 
   const total = products.reduce((accumulator, currentValue) => {
     const subTotal = currentValue.product.price * currentValue.quantity
