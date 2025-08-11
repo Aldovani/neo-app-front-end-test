@@ -1,17 +1,27 @@
 import { Button } from '@/components/button'
 import { useAppSelector } from '@/stores'
+import { useCart } from '@/stores/modules/cart/actions'
 import { formateMoney } from '@/utils/formate-money'
+import { useRef } from 'react'
 import * as S from './styles'
 
 export function ResumeOrder() {
-  const total = useAppSelector((item) => item.cart.items).reduce(
-    (accumulator, currentValue) => {
-      const subTotal = currentValue.product.price * currentValue.quantity
+  const { handleVerifyCoupon } = useCart()
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const products = useAppSelector((item) => item.cart.items)
+  const couponDiscount = useAppSelector((item) => item.cart.couponDiscount)
 
-      return accumulator + subTotal
-    },
-    0,
-  )
+  const total = products.reduce((accumulator, currentValue) => {
+    const subTotal = currentValue.product.price * currentValue.quantity
+
+    return accumulator + subTotal
+  }, 0)
+
+  function handleVerify() {
+    if (!inputRef.current) return
+
+    handleVerifyCoupon(inputRef.current?.value)
+  }
 
   return (
     <S.Container>
@@ -19,11 +29,25 @@ export function ResumeOrder() {
         <S.Titile>Resumo do pedido</S.Titile>
       </header>
 
+      <S.CupomContainer>
+        <div>
+          <label htmlFor="discount">Cupom de desconto</label>
+          <S.CupomInput
+            ref={inputRef}
+            type="text"
+            id="discount"
+            placeholder="EX: MARVEL10"
+          />
+        </div>
+
+        <Button onClick={handleVerify}>Aplicar</Button>
+      </S.CupomContainer>
+
       <S.Content>
         <S.List>
           <S.ListItem>
-            <span>Desconto:</span>
-            <h4>58</h4>
+            <span>Frete:</span>
+            <h4 className="small">Gratis</h4>
           </S.ListItem>
           <S.ListItem>
             <span>Total:</span>

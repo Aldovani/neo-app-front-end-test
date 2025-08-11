@@ -49,12 +49,14 @@ export function Cart() {
             <S.Main>
               {products.map((item) => (
                 <CartItem
+                  rarity={item.product.rarity}
                   imgUrl={item.product.imgUrl}
                   price={item.product.price}
                   title={item.product.title}
                   quantity={item.quantity}
                   key={item.product.id}
                   id={item.product.id}
+                  discountWithCoupon={item.product.discountWithCoupon}
                 />
               ))}
             </S.Main>

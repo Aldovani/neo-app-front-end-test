@@ -27,6 +27,8 @@ export function CatalogClient({
       <S.ContainerCards id="comics">
         {comics.map((comic) => (
           <ComicCard
+            discountWithCoupon={comic.discountWithCoupon}
+            rarity={comic.rarity}
             id={comic.id}
             price={comic.prices[0].price}
             thumbnail={comic.thumbnail.path + '.' + comic.thumbnail.extension}

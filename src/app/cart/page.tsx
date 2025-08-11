@@ -10,17 +10,19 @@ import * as S from './styles'
 export default function CartPage() {
   const totalOfItems = useAppSelector((item) => item.cart.items.length)
   const router = useRouter()
+
   return (
     <S.Background>
       <S.Container>
         {totalOfItems === 0 && (
           <S.EmptyState>
             <S.EmptyStateTitle>
-              Voçe não possui nada no carrinho
+              Voce não possui nada no carrinho
             </S.EmptyStateTitle>
             <Button onClick={() => router.push('/')}>Ir as compras</Button>
           </S.EmptyState>
         )}
+
         {totalOfItems > 0 && (
           <>
             <div>

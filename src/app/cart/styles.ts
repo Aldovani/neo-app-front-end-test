@@ -11,7 +11,7 @@ export const Background = styled.main`
 
 export const Container = styled.div`
   max-width: calc(1217px + 24px);
-  margin: 0 auto 0;
+  margin: 0 auto;
   padding-block: 64px;
   padding-inline: 24px;
   display: grid;
@@ -19,7 +19,7 @@ export const Container = styled.div`
   gap: 32px;
 
   @media (min-width: 900px) {
-    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-columns: 1fr 0.3fr;
   }
 `
 export const Header = styled.header`

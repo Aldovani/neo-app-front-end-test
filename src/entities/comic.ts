@@ -1,5 +1,7 @@
 export type Comic = {
   id: number
+  discountWithCoupon: number
+  rarity: string
   digitalId: number
   title: string
   issueNumber: number

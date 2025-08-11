@@ -9,10 +9,12 @@ import * as S from './styles'
 
 type ComicDetailsClientProps = {
   title: string
+  rarity: string
   price: number
   id: number
   imgUrl: string
   description: string
+  discountWithCoupon: number
 }
 
 export function ComicDetailsClient({
@@ -21,6 +23,8 @@ export function ComicDetailsClient({
   imgUrl,
   price,
   title,
+  rarity,
+  discountWithCoupon,
 }: ComicDetailsClientProps) {
   const { handleAddProduct, handleRemoveProduct } = useCart()
 
@@ -43,16 +47,32 @@ export function ComicDetailsClient({
             {product?.quantity ? (
               <QuantityInput
                 decrementAction={() => {
-                  handleRemoveProduct({ id, imgUrl, price, title })
+                  handleRemoveProduct(id)
                 }}
                 incrementAction={() =>
-                  handleAddProduct({ id, imgUrl, price, title })
+                  handleAddProduct({
+                    id,
+                    imgUrl,
+                    price,
+                    title,
+                    rarity,
+                    discountWithCoupon,
+                  })
                 }
                 quantity={product?.quantity || 0}
               />
             ) : (
               <Button
-                onClick={() => handleAddProduct({ id, imgUrl, price, title })}
+                onClick={() =>
+                  handleAddProduct({
+                    id,
+                    imgUrl,
+                    price,
+                    title,
+                    rarity,
+                    discountWithCoupon,
+                  })
+                }
               >
                 Adicionar ao carrinho
               </Button>

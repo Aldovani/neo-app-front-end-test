@@ -46,9 +46,18 @@ export const Price = styled.h3`
 export const WrapperPrice = styled.div`
   align-content: center;
   text-align: center;
+
   font-family: ${(prop) => prop.theme.fontFamily.inter};
   font-weight: 500;
   font-size: 1rem;
+
+  div {
+    display: flex;
+    gap: 3px;
+    flex: 1;
+    align-items: center;
+    word-break: keep-all;
+  }
 
   .discount {
     color: #2a873e;
@@ -56,6 +65,7 @@ export const WrapperPrice = styled.div`
 
   .normal-price {
     color: ${(prop) => prop.theme.colors.gray[500]};
+    text-decoration: line-through;
   }
 `
 export const WrapperContent = styled.div`

@@ -9,6 +9,8 @@ export function CartList() {
     <S.Container>
       {items.map((item) => (
         <CartListItem
+          discountWithCoupon={item.product.discountWithCoupon}
+          rarity={item.product.rarity}
           id={item.product.id}
           imgUrl={item.product.imgUrl}
           price={item.product.price}

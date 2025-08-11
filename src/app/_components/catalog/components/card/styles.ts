@@ -1,8 +1,13 @@
 import NextLink from 'next/link'
 import styled from 'styled-components'
 
-export const Container = styled.article`
-  background-color: ${(prop) => prop.theme.colors.withe};
+export const Container = styled.article.attrs<{ $rarity: string }>(
+  (prop) => prop,
+)`
+  background-color: ${(prop) =>
+    prop.$rarity === 'rare'
+      ? prop.theme.colors.primary
+      : prop.theme.colors.withe};
   padding: 16px 0 20px 0;
   position: relative;
   border-radius: 0.5rem;

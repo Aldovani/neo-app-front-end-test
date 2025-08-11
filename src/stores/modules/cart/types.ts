@@ -3,6 +3,8 @@ export type CartProductItem = {
   price: number
   id: number
   imgUrl: string
+  rarity: string
+  discountWithCoupon: number
 }
 
 export type CartStateItem = {
@@ -12,5 +14,11 @@ export type CartStateItem = {
 
 export type CartState = {
   items: CartStateItem[]
+  couponDiscount?: string
   isOpen: boolean
+}
+
+export type Coupon = {
+  code: string
+  type: string
 }

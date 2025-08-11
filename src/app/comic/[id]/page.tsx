@@ -16,14 +16,16 @@ export default async function ComicDetails({ params }: ComicDetailsProp) {
   if (!response.success || !response.value) return
 
   const comic = {
-    description: response.value.data.results[0].textObjects[0]?.text || '',
-    price: response.value.data.results[0].prices[0].price,
-    id: response.value.data.results[0].id,
-    title: response.value.data.results[0].title,
+    description: response.value.results[0].textObjects[0]?.text || '',
+    price: response.value.results[0].prices[0].price,
+    id: response.value.results[0].id,
+    title: response.value.results[0].title,
     imgUrl:
-      response.value.data.results[0].thumbnail.path +
+      response.value.results[0].thumbnail.path +
       '.' +
-      response.value.data.results[0].thumbnail.extension,
+      response.value.results[0].thumbnail.extension,
+    rarity: response.value.results[0].rarity,
+    discountWithCoupon: response.value.results[0].discountWithCoupon,
   }
 
   return <ComicDetailsClient {...comic} />

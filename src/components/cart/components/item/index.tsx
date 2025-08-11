@@ -9,12 +9,22 @@ import * as S from './styles'
 type CartItemProp = {
   imgUrl: string
   title: string
+  rarity: string
   price: number
   quantity: number
+  discountWithCoupon: number
   id: number
 }
 
-export function CartItem({ imgUrl, price, title, quantity, id }: CartItemProp) {
+export function CartItem({
+  imgUrl,
+  price,
+  title,
+  quantity,
+  id,
+  rarity,
+  discountWithCoupon,
+}: CartItemProp) {
   const { handleAddProduct, handleRemoveProduct } = useCart()
   return (
     <S.Container>
@@ -27,20 +37,15 @@ export function CartItem({ imgUrl, price, title, quantity, id }: CartItemProp) {
 
           <QuantityInput
             quantity={quantity}
-            decrementAction={() =>
-              handleRemoveProduct({
-                id,
-                imgUrl,
-                price,
-                title,
-              })
-            }
+            decrementAction={() => handleRemoveProduct(id)}
             incrementAction={() =>
               handleAddProduct({
                 id,
                 imgUrl,
                 price,
                 title,
+                rarity,
+                discountWithCoupon,
               })
             }
           />

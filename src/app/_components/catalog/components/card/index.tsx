@@ -8,12 +8,21 @@ import * as S from './styles'
 
 type ComicCardProps = {
   title: string
+  rarity: string
   price: number
   thumbnail: string
   id: number
+  discountWithCoupon: number
 }
 
-export function ComicCard({ price, thumbnail, title, id }: ComicCardProps) {
+export function ComicCard({
+  price,
+  thumbnail,
+  title,
+  id,
+  rarity,
+  discountWithCoupon,
+}: ComicCardProps) {
   const dispatch = useAppDispatch()
 
   function handleAddProduct() {
@@ -23,12 +32,14 @@ export function ComicCard({ price, thumbnail, title, id }: ComicCardProps) {
         imgUrl: thumbnail,
         price,
         title,
+        rarity,
+        discountWithCoupon,
       }),
     )
   }
 
   return (
-    <S.Container>
+    <S.Container $rarity={rarity}>
       <S.Link href={`/comic/${id}`}>
         <S.ContainerImage>
           <Image src={thumbnail} alt={title} width={235} height={248} />
